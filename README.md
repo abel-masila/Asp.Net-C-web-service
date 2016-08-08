@@ -8,7 +8,23 @@ LastName-Varchar(50)
 Location-Varchar(50).
 Now open visual studio and create a blank web web project and add a web service to the blank project.
 add the following code to your Service.asmx.cs.
-https://gist.github.com/abel-masila/bd63e87077658569e75f6f2b0e75a847/raw
+[WebMethod]
+        public XmlElement GetUserInfo(string userName)
+        {
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ToString());
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select * from tblUserInfo where userName like @userName+'%'", con);
+            cmd.Parameters.AddWithValue("@userName",userName);
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            con.Close();
+            //Return the Dataset as XmlElement
+            XmlDataDocument xmlData = new XmlDataDocument(ds);
+            XmlElement xmlElement = xmlData.DocumentElement;
+            return xmlElement;
+        }
 
 Now create add your database connection settings in web.config i.e
 <connectionStrings>
