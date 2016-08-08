@@ -1,6 +1,6 @@
 # Asp.Net-C-web-service
-Web Service messages are formatted as XML, a standard way for communication between two incompatible system. And this message is sent via HTTP, so that they can reach to any machine on the internet without being blocked by firewall.
 To get started with creating a web service, open your SQL server management studio and create a table in your prefered database called tblUserInfo.
+
 UserId-Int(Set Identity=true) primary key
 UserName-Varchar(50)
 FirstName-Varchar(50)
@@ -8,48 +8,7 @@ LastName-Varchar(50)
 Location-Varchar(50).
 Now open visual studio and create a blank web web project and add a web service to the blank project.
 add the following code to your Service.asmx.cs
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Services;
-using System.Xml;
-using System.Data;
-using System.Data.SqlClient;
-using System.Configuration;
-
-namespace SampleService
-{
-    /// <summary>
-    /// Summary description for Service
-    /// </summary>
-    [WebService(Namespace = "http://tempuri.org/")]
-    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
-    [System.ComponentModel.ToolboxItem(false)]
-    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-    // [System.Web.Script.Services.ScriptService]
-    public class Service : System.Web.Services.WebService
-    {
-
-        [WebMethod]
-        public XmlElement GetUserInfo(string userName)
-        {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ToString());
-            con.Open();
-            SqlCommand cmd = new SqlCommand("select * from tblUserInfo where userName like @userName+'%'", con);
-            cmd.Parameters.AddWithValue("@userName",userName);
-            cmd.ExecuteNonQuery();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            con.Close();
-            //Return the Dataset as XmlElement
-            XmlDataDocument xmlData = new XmlDataDocument(ds);
-            XmlElement xmlElement = xmlData.DocumentElement;
-            return xmlElement;
-        }
-    }
-}
+<script src="https://gist.github.com/abel-masila/bd63e87077658569e75f6f2b0e75a847.js"></script>
 
 Now create add your database connection settings in web.config i.e
 <connectionStrings>
