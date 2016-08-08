@@ -1,0 +1,6 @@
+c:\users\admin\documents\visual studio 2013\Projects\SampleService\SampleService\bin\SampleService.dll.config
+c:\users\admin\documents\visual studio 2013\Projects\SampleService\SampleService\bin\SampleService.dll
+c:\users\admin\documents\visual studio 2013\Projects\SampleService\SampleService\bin\SampleService.pdb
+c:\users\admin\documents\visual studio 2013\Projects\SampleService\SampleService\obj\Debug\SampleService.csprojResolveAssemblyReference.cache
+c:\users\admin\documents\visual studio 2013\Projects\SampleService\SampleService\obj\Debug\SampleService.dll
+c:\users\admin\documents\visual studio 2013\Projects\SampleService\SampleService\obj\Debug\SampleService.pdb
