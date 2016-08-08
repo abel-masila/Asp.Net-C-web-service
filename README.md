@@ -8,7 +8,7 @@ LastName-Varchar(50)
 Location-Varchar(50).
 Now open visual studio and create a blank web web project and add a web service to the blank project.
 add the following code to your Service.asmx.cs
-<script src="https://gist.github.com/abel-masila/bd63e87077658569e75f6f2b0e75a847.js"></script>
+https://gist.github.com/abel-masila/bd63e87077658569e75f6f2b0e75a847.js
 
 Now create add your database connection settings in web.config i.e
 <connectionStrings>
